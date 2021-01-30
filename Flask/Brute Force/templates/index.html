@@ -1,0 +1,21 @@
+<h1 id = "titulo">Password Breaker</h1>
+<form method="post" action="{{ url_for('quebrar_senha') }}">
+    
+    <text>
+        Clique no botão para quebrar a senha<br>
+    </text>
+    <button type="submit" name="quebrar" onclick="funcao()">
+        Clique aqui        
+    </button>
+    <script>
+        function funcao() {
+            document.getElementById("titulo").innerHTML = "Quebrando a senha aguarde...";
+        }
+    </script>   
+</form>
+
+<footer>
+    <article>
+        Lucas Macedo inc.
+    </article>
+</footer>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <h1>
+            Quebrador de senha
+        </h1>  
+    </head>
+     
+    <h2>
+        Processando ...
+    </h2>
+
+    {% for linha in arq if breaker.verifica_hash(linha)%}
+        <p>Encontrada</p>
+        <!-- Envia o formulario sem precisar apertar um botao -->
+        <form name="F1" method="post" action="{{ url_for('achou') }}">
+            <input type="hidden" value={{linha}} name="senha">
+            <p> A senha correta é: <b>{{linha}}</b></p>
+            <script language="JavaScript">document.forms["F1"].submit();</script>
+        </form>
+    {% endfor %}
+    <p><br>Acabou</p>
+        <!-- Envia o formulario sem precisar apertar um botao -->
+        <form name="F1" method="post" action="{{ url_for('nao_achou') }}">
+            <input type="hidden" value={{linha}} name="senha">
+            <script language="JavaScript">document.forms["F1"].submit();</script>
+        </form>
+    <footer>
+        <article>
+            Lucas Macedo inc.
+        </article>
+    </footer>
+    
+</html>
